@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -18,7 +18,7 @@
     <div class="list-group-item list-group-item-action">
         <div class="d-flex w-100 justify-content-between">
             <h5>@<span th:text="${tweet.user.username}"></span>
-                <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></small></h5>
+                <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
         </div>
         <p class="mb-1" th:utext="${tweet.message}"></p>
     </div>
@@ -34,5 +34,6 @@
     <form th:action="@{/unfollow/} + ${user.username}" th:if="${following}" method="post">
         <button style="float:right" type="Submit" class="btn btn-lg btn-primary unfollow_btn">Following</button>
     </form>
+</div>
 </body>
 </html>
